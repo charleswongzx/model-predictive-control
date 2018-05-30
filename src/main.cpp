@@ -122,7 +122,6 @@ int main() {
           double pred_cte = cte + v * sin(epsi) * dt;
           double pred_epsi = epsi + v * -delta / Lf * dt;
 
-          // Feed in the predicted state values
           Eigen::VectorXd state(6);
           state << pred_px, pred_py, pred_psi, pred_v, pred_cte, pred_epsi;
 
@@ -134,6 +133,10 @@ int main() {
           double throttle_value = vars[1];
 
           json msgJson;
+
+
+          /// PREDICTED PATH BY MPC
+
           // NOTE: Remember to divide by deg2rad(25) before you send the steering value back.
           // Otherwise the values will be in between [-deg2rad(25), deg2rad(25] instead of [-1, 1].
           msgJson["steering_angle"] = steer_value;
@@ -152,6 +155,9 @@ int main() {
 
           msgJson["mpc_x"] = mpc_x_vals;
           msgJson["mpc_y"] = mpc_y_vals;
+
+
+          /// UPCOMING GROUND TRUTH PATH
 
           //Display the waypoints/reference line
           vector<double> next_x_vals;

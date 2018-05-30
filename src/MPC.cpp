@@ -21,7 +21,7 @@ double dt = 0.1;
 // This is the length from front to CoG that has a similar radius.
 const double Lf = 2.67;
 
-// Set desired speed for the cost function (i.e. max speed)
+// Set desired speed for the cost function
 const double ref_v = 100;
 
 // Start times
@@ -56,7 +56,7 @@ class FG_eval {
     // Below defines the cost related the reference state and
     // any anything you think may be beneficial.
 
-    // Weights for how "important" each cost is
+    // Weights
     const int cte_cost_weight = 2000;
     const int epsi_cost_weight = 2000;
     const int v_cost_weight = 1;
